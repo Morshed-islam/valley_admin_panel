@@ -1,10 +1,12 @@
 import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:new_valley_admin/providers/add_slider_provider/add_slider_provider.dart';
 import 'package:new_valley_admin/providers/dashboard/page_provider.dart';
 import 'package:new_valley_admin/providers/login_provider/login_provider.dart';
 import 'package:new_valley_admin/screens/add_post/add_post_screen.dart';
-import 'package:new_valley_admin/screens/dashboard/dashboard_screen.dart';
+import 'package:new_valley_admin/screens/add_slider/add_slider.dart';
+import 'package:new_valley_admin/screens/dashboard/starter_screen.dart';
 import 'package:new_valley_admin/screens/login/login_screen.dart';
 import 'package:new_valley_admin/screens/payments/payment_screen.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +34,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => PageProvider()), // Manage page navigation
         ChangeNotifierProvider(create: (_) => authProvider), // Use the same instance of AuthProvider
+        ChangeNotifierProvider(create: (_) => SliderProvider()),
       ],
       child: MyApp(),
     ),
@@ -51,14 +54,15 @@ class MyApp extends StatelessWidget {
           log("isLoggedIn: ${authProvider.isLoggedIn}");
           // Show login screen if not logged in, otherwise show dashboard
           return authProvider.isLoggedIn
-              ? AdminDashboard() // Redirect to Admin Dashboard if logged in
+              ? StarterScreen() // Redirect to Admin Dashboard if logged in
               : AdminLoginScreen(); // Show login screen otherwise
         },
       ),
       routes: {
-        '/adminDashboard': (context) => AdminDashboard(),
+        '/adminDashboard': (context) => StarterScreen(),
         '/addPost': (context) => AddPostPage(),
         '/payments': (context) => PaymentsPage(),
+        '/addSlider': (context) => AddSliderPage(),
       },
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/login_provider/login_provider.dart';
-import '../dashboard/dashboard_screen.dart';
+import '../dashboard/starter_screen.dart';
 
 class AdminLoginScreen extends StatefulWidget {
   @override
@@ -21,7 +21,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
       if (authProvider.isLoggedIn) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => AdminDashboard()),
+          MaterialPageRoute(builder: (context) => StarterScreen()),
         );
       }
     });
@@ -83,7 +83,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
                       if (authProvider.isLoggedIn) {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => AdminDashboard()),
+                          MaterialPageRoute(builder: (context) => StarterScreen()),
                         );
                       }
                     },
