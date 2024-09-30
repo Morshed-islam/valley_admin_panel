@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../providers/add_villa_provider/add_villa_provider.dart';
 
-class AddPostPage extends StatelessWidget {
+class AddVillaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final addPostProvider = Provider.of<AddVillaProvider>(context);

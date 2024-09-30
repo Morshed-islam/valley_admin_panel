@@ -5,7 +5,7 @@ import 'package:new_valley_admin/providers/add_slider_provider/add_slider_provid
 import 'package:new_valley_admin/providers/add_villa_provider/add_villa_provider.dart';
 import 'package:new_valley_admin/providers/dashboard/page_provider.dart';
 import 'package:new_valley_admin/providers/login_provider/login_provider.dart';
-import 'package:new_valley_admin/screens/add_post/add_post_screen.dart';
+import 'package:new_valley_admin/screens/add_post/add_villa_screen.dart';
 import 'package:new_valley_admin/screens/add_slider/add_slider.dart';
 import 'package:new_valley_admin/screens/dashboard/starter_screen.dart';
 import 'package:new_valley_admin/screens/login/login_screen.dart';
@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/adminDashboard': (context) => StarterScreen(),
-        '/addPost': (context) => AddPostPage(),
+        '/addPost': (context) => AddVillaPage(),
         '/payments': (context) => PaymentsPage(),
         '/addSlider': (context) => AddSliderPage(),
       },

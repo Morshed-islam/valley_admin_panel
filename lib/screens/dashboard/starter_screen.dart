@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/dashboard/page_provider.dart';
-import '../add_post/add_post_screen.dart';
+import '../add_post/add_villa_screen.dart';
 import '../add_slider/add_slider.dart';
 import '../payments/payment_screen.dart';
 import 'dashboard.dart';
@@ -76,7 +76,7 @@ class StarterScreen extends StatelessWidget {
       case 'Dashboard':
         return DashboardPage();
       case 'Add Post':
-        return AddPostPage();
+        return AddVillaPage();
       case 'addSlider':
         return AddSliderPage();
       case 'Payments':
