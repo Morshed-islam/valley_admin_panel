@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:new_valley_admin/providers/add_slider_provider/add_slider_provider.dart';
+import 'package:new_valley_admin/providers/add_villa_provider/add_villa_provider.dart';
 import 'package:new_valley_admin/providers/dashboard/page_provider.dart';
 import 'package:new_valley_admin/providers/login_provider/login_provider.dart';
 import 'package:new_valley_admin/screens/add_post/add_post_screen.dart';
@@ -35,6 +36,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => PageProvider()), // Manage page navigation
         ChangeNotifierProvider(create: (_) => authProvider), // Use the same instance of AuthProvider
         ChangeNotifierProvider(create: (_) => SliderProvider()),
+        ChangeNotifierProvider(create: (_) => AddVillaProvider()),
       ],
       child: MyApp(),
     ),
