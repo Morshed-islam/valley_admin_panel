@@ -20,11 +20,8 @@ class StarterScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 DrawerHeader(
-                  child: Text(
-                    'Admin Panel',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
                   decoration: BoxDecoration(color: Colors.blueGrey[800]),
+                  child: Image.asset('assets/logo.png', fit: BoxFit.contain, width: 250, height: 150,filterQuality: FilterQuality.high,),
                 ),
                 ListTile(
                   title: Text('Dashboard', style: TextStyle(color: Colors.white)),
