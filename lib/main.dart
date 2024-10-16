@@ -3,10 +3,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:new_valley_admin/providers/add_slider_provider/add_slider_provider.dart';
 import 'package:new_valley_admin/providers/add_villa_provider/add_villa_provider.dart';
+import 'package:new_valley_admin/providers/all_villa_provider/all_villas_provider.dart';
 import 'package:new_valley_admin/providers/dashboard/page_provider.dart';
 import 'package:new_valley_admin/providers/login_provider/login_provider.dart';
 import 'package:new_valley_admin/screens/add_post/add_villa_screen.dart';
 import 'package:new_valley_admin/screens/add_slider/add_slider.dart';
+import 'package:new_valley_admin/screens/all_villa/all_villa_screen.dart';
 import 'package:new_valley_admin/screens/dashboard/starter_screen.dart';
 import 'package:new_valley_admin/screens/login/login_screen.dart';
 import 'package:new_valley_admin/screens/payments/payment_screen.dart';
@@ -34,23 +36,24 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => PageProvider()), // Manage page navigation
-        ChangeNotifierProvider(create: (_) => authProvider), // Use the same instance of AuthProvider
+        ChangeNotifierProvider(create: (_) => AuthProvider()), // Use the same instance of AuthProvider
         ChangeNotifierProvider(create: (_) => SliderProvider()),
         ChangeNotifierProvider(create: (_) => AddVillaProvider()),
+        ChangeNotifierProvider(create: (_) => VillasProvider()),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Admin Panel',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+
       home: Consumer<AuthProvider>(
         builder: (context, authProvider, _) {
           log("isLoggedIn: ${authProvider.isLoggedIn}");
@@ -65,6 +68,7 @@ class MyApp extends StatelessWidget {
         '/addPost': (context) => AddVillaPage(),
         '/payments': (context) => PaymentsPage(),
         '/addSlider': (context) => AddSliderPage(),
+        '/allVilla': (context) => AllVillaScreen(),
       },
     );
   }

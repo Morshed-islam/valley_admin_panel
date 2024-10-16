@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_valley_admin/screens/all_villa/all_villa_screen.dart';
 import 'package:provider/provider.dart';
 import '../../providers/dashboard/page_provider.dart';
 import '../add_post/add_villa_screen.dart';
@@ -21,13 +22,26 @@ class StarterScreen extends StatelessWidget {
               children: [
                 DrawerHeader(
                   decoration: BoxDecoration(color: Colors.blueGrey[800]),
-                  child: Image.asset('assets/logo.png', fit: BoxFit.contain, width: 250, height: 150,filterQuality: FilterQuality.high,),
+                  child: Image.asset(
+                    'assets/logo.png',
+                    fit: BoxFit.contain,
+                    width: 250,
+                    height: 150,
+                    filterQuality: FilterQuality.high,
+                  ),
                 ),
                 ListTile(
                   title: Text('Dashboard', style: TextStyle(color: Colors.white)),
                   leading: Icon(Icons.dashboard, color: Colors.white),
                   onTap: () {
                     Provider.of<PageProvider>(context, listen: false).navigateTo('Dashboard');
+                  },
+                ),
+                ListTile(
+                  title: Text('All Villas', style: TextStyle(color: Colors.white)),
+                  leading: Icon(Icons.list_alt_sharp, color: Colors.white),
+                  onTap: () {
+                    Provider.of<PageProvider>(context, listen: false).navigateTo('All Villas');
                   },
                 ),
                 ListTile(
@@ -72,6 +86,8 @@ class StarterScreen extends StatelessWidget {
     switch (selectedPage) {
       case 'Dashboard':
         return DashboardPage();
+      case 'All Villas':
+        return AllVillaScreen();
       case 'Add Post':
         return AddVillaPage();
       case 'addSlider':
