@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../providers/dashboard/page_provider.dart';
 import '../add_post/add_villa_screen.dart';
 import '../add_slider/add_slider.dart';
-import '../payments/payment_screen.dart';
+import '../payments/bookings_screen.dart';
 import 'dashboard.dart';
 
 class StarterScreen extends StatelessWidget {
@@ -59,10 +59,10 @@ class StarterScreen extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  title: Text('Payments', style: TextStyle(color: Colors.white)),
+                  title: Text('All Bookings', style: TextStyle(color: Colors.white)),
                   leading: Icon(Icons.payment, color: Colors.white),
                   onTap: () {
-                    Provider.of<PageProvider>(context, listen: false).navigateTo('Payments');
+                    Provider.of<PageProvider>(context, listen: false).navigateTo('Bookings');
                   },
                 ),
               ],
@@ -92,8 +92,8 @@ class StarterScreen extends StatelessWidget {
         return AddVillaPage();
       case 'addSlider':
         return AddSliderPage();
-      case 'Payments':
-        return PaymentsPage();
+      case 'Bookings':
+        return BookingsPage();
 
       default:
         return DashboardPage(); // Default to Dashboard
