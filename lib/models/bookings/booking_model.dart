@@ -1,4 +1,5 @@
 class Booking {
+  final String villaId;
   final String villaName;
   final String villaLocation;
   final String dayCount;
@@ -8,6 +9,7 @@ class Booking {
   final String userEmail;
 
   Booking({
+    required this.villaId,
     required this.villaName,
     required this.villaLocation,
     required this.dayCount,
@@ -19,6 +21,7 @@ class Booking {
 
   factory Booking.fromMap(Map<String, dynamic> data) {
     return Booking(
+      villaId: data['villa_id'] ?? '',
       villaName: data['villa_name'] ?? '',
       villaLocation: data['villa_location'] ?? '',
       dayCount: data['day_count'] ?? 0,

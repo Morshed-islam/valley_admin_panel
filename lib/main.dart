@@ -10,6 +10,7 @@ import 'package:new_valley_admin/providers/login_provider/login_provider.dart';
 import 'package:new_valley_admin/screens/add_post/add_villa_screen.dart';
 import 'package:new_valley_admin/screens/add_slider/add_slider.dart';
 import 'package:new_valley_admin/screens/all_villa/all_villa_screen.dart';
+import 'package:new_valley_admin/screens/booking_calendar/booking_calendar_screen.dart';
 import 'package:new_valley_admin/screens/dashboard/starter_screen.dart';
 import 'package:new_valley_admin/screens/login/login_screen.dart';
 import 'package:new_valley_admin/screens/payments/bookings_screen.dart';

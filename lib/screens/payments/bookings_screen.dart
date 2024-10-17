@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/booking_provider/booking_provider.dart';
+import '../booking_calendar/booking_calendar_screen.dart';
 
 class BookingsPage extends StatefulWidget {
   @override
@@ -39,18 +40,30 @@ class _BookingsPageState extends State<BookingsPage> {
               final booking = bookings[index];
               return Card(
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                child: ListTile(
-                  title: Text(booking.villaName),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Location: ${booking.villaLocation}'),
-                      Text('Day Count: ${booking.dayCount}'),
-                      Text('Start: ${booking.bookingStartDate}'),
-                      Text('End: ${booking.bookingEndDate}'),
-                      Text('Total Amount: \$${booking.totalAmount}'),
-                      Text('User Email: ${booking.userEmail}'),
-                    ],
+                child: InkWell(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookingCalendarScreen(
+                          villaId: booking.villaId,
+                        ),
+                      ),
+                    );
+                  },
+                  child: ListTile(
+                    title: Text(booking.villaName),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Location: ${booking.villaLocation}'),
+                        Text('Day Count: ${booking.dayCount}'),
+                        Text('Start: ${booking.bookingStartDate}'),
+                        Text('End: ${booking.bookingEndDate}'),
+                        Text('Total Amount: \$${booking.totalAmount}'),
+                        Text('User Email: ${booking.userEmail}'),
+                      ],
+                    ),
                   ),
                 ),
               );
