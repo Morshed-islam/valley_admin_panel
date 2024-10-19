@@ -222,6 +222,13 @@ class _AddVillaPageState extends State<AddVillaPage> {
                       value: addPostProvider.serviceFees.toString(),
                       onChanged: (val) => addPostProvider.updateServiceFees(val),
                     ),
+
+                    _buildTextInputField(
+                      context: context,
+                      title: 'Tax (%)',
+                      value: addPostProvider.tax.toString(),
+                      onChanged: (val) => addPostProvider.updateTax(val),
+                    ),
                   ],
                 ),
               ),
@@ -416,6 +423,9 @@ class _AddVillaPageState extends State<AddVillaPage> {
       return;
     } else if (provider.dailyRent.isEmpty) {
       alertMessage('Please input daily rent');
+      return;
+    }else if (provider.tax.isEmpty) {
+      alertMessage('Please input tax (%) i.e. 10');
       return;
     } else if (provider.cleaningFees.isEmpty) {
       alertMessage('Please input cleaning fees');

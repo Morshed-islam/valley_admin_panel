@@ -9,6 +9,7 @@ class AddVillaProvider with ChangeNotifier {
   int children = -1;
   int adult = -1;
   String dailyRent = '';
+  String tax = '';
   String cleaningFees = '';
   String serviceFees = '';
   String extraOptions = '';
@@ -98,6 +99,7 @@ class AddVillaProvider with ChangeNotifier {
         'title': villaName,
         'images': imageUrls, // Store all image URLs
         'is_booked': false,
+        'tax': tax,
       });
 
       isSubmitting = false;
@@ -231,6 +233,10 @@ class AddVillaProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void updateTax(String value) {
+    tax = value;
+    notifyListeners();
+  }
   void updateCleaningFees(String value) {
     cleaningFees = value;
     notifyListeners();
